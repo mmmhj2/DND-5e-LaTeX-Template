@@ -1,22 +1,10 @@
-\documentclass[letterpaper,twocolumn,openany,nodeprecatedcode]{dndbook}
+\documentclass[twocolumn]{ctexbook}
 
-% Use babel or polyglossia to automatically redefine macros for terms
-% Armor Class, Level, etc...
-% Default output is in English; captions are located in lib/dndstrings.sty.
-% If no captions exist for a language, English will be used.
-%1. To load a language with babel:
-%	\usepackage[<lang>]{babel}
-%2. To load a language with polyglossia:
-%	\usepackage{polyglossia}
-%	\setdefaultlanguage{<lang>}
-\usepackage[english]{babel}
-%\usepackage[italian]{babel}
-% For further options (multilanguage documents, hypenations, language environments...)
-% please refer to babel/polyglossia's documentation.
+\usepackage[nodeprecatedcode]{dnd}
 
-\usepackage[utf8]{inputenc}
 \usepackage[singlelinecheck=false]{caption}
 \usepackage{lipsum}
+\usepackage{multicol}
 \usepackage{listings}
 \usepackage{shortvrb}
 \usepackage{stfloats}
@@ -24,9 +12,9 @@
 \captionsetup[table]{labelformat=empty,font={sf,sc,bf,},skip=0pt}
 
 \MakeShortVerb{|}
-
+\newfontfamily\crn{Courier New}
 \lstset{%
-  basicstyle=\ttfamily,
+  basicstyle=\crn,
   language=[LaTeX]{TeX},
   breaklines=true,
 }
@@ -44,120 +32,137 @@
 
 \tableofcontents
 
-\mainmatter%
+\mainmatter
 
-\part{Layout}
+\part{布局}
 
-\chapter{Sections}
+\chapter{章节}
 
-\DndDropCapLine{T}{his package is designed to aid you in} writing beautifully typeset documents for the fifth edition of the world's greatest roleplaying game. It starts by adjusting the section formatting from the defaults in \LaTeX{} to something a bit more familiar to the reader. The chapter formatting is displayed above.
+\DndDropCapLine{本}{宏包是用来帮助您}为世界上最伟大的角色扮演游戏的第五版撰写排版漂亮的文章的。
+它首先把\LaTeX{}中默认的小节排版变为读者更加熟悉的形式。
+章节排版则如上所示。
 
-\section{Section}
-Sections break up chapters into large groups of associated text.
+\section{小节}
+使用小节（section）来把章节分成大量相关的文字。
 
-\subsection{Subsection}
-Subsections further break down the information for the reader.
+\subsection{小小节}
+使用小小节（subsection）来更进一步地为读者拆分信息。
 
-\subsubsection{Subsubsection}
-Subsubsections are the furthest division of text that still have a block header. Below this level, headers are displayed inline.
+\subsubsection{小小小节}
+小小小节（subsubsection）依然具有块级的标头，比它更细的划分中的标头是内联的。
 
-\paragraph{Paragraph}
-The paragraph format is seldom used in the core books, but is available if you prefer it to the ``normal'' style.
+\paragraph{段落}
+在核心规则书中很少见到段落（paragraph）格式，但是如果您更加喜欢段落式的排版，也可以使用它。
 
-\subparagraph{Subparagraph}
-The subparagraph format with the paragraph indent is likely going to be more familiar to the reader.
+\subparagraph{子段落}
+带有段落缩进的子段落（subparagraph）格式对读者而言可能更加熟悉。
 
-\section{Special Sections}
-The module also includes functions to aid in the proper typesetting of multi-line section headers: |\DndFeatHeader| for feats, |\DndItemHeader| magic items and traps, and |\DndSpellHeader| for spells.
+\section{特殊的小节}
 
-\DndFeatHeader{Typesetting Savant}[Prerequisite: \LaTeX{} distribution]
-You have acquired a package which aids in typesetting source material for one of your favorite games, giving you the following benefits:
+本模块也包括了用来辅助多行小节标头排版的函数：|\DndFeatHeader|用于专长（Feat）的排版、|\DndItemHeader|用于魔法物品与陷阱的排版、|\DndSpellHeader|用于法术的排版。
+
+\DndFeatHeader{排版智者 Typesetting Savant}[先决条件：\LaTeX{}分发版]
+
+你获得了帮助你最喜欢的游戏之一的原始材料进行排版的宏包。
+让你获得以下增益：
 
 \begin{itemize}
-  \item You have advantage on Intelligence checks to typeset new content.
-  \item When you fail an Intelligence check to typeset new content, you can ask questions online at the package's website.
+	\item 你为排版新内容所做的智力检定具有优势；
+	\item 当你未能通过为排版新内容所做的智力检定时，你可以在该宏包的网站上寻求帮助。
 \end{itemize}
 
-\DndItemHeader{Foo's Quill}{Wondrous item, rare}
-This quill has 3 charges. While holding it, you can use an action to expend 1 of its charges. The quill leaps from your hand and writes a contract applicable to your situation.
+\DndItemHeader{福之翎笔 Foo's Quill}{奇物，珍稀}
 
-The quill regains 1d3 expended charges daily at dawn.
+该翎笔具有三发充能。
+持有它时，你可以使用一次动作消耗一发充能。
+该翎笔会跃出你的手中，并根据你所处的情况撰写一份契约。
+
+该翎笔每日黎明时回复1d3发已消耗的充能。
 
 \DndSpellHeader%
-  {Beautiful Typesetting}
-  {4th-level illusion}
-  {1 action}
-  {5 feet}
-  {S, M (ink and parchment, which the spell consumes)}
-  {Until dispelled}
-You are able to transform a written message of any length into a beautiful scroll. All creatures within range that can see the scroll must make a wisdom saving throw or be charmed by you until the spell ends.
+  {精致排版 Beautiful Typesetting}
+  {四环，幻术}
+  {1动作}
+  {5尺}
+  {S，M （墨水与羊皮纸）}
+  {直至被解除}
 
-While the creature is charmed by you, they cannot take their eyes off the scroll and cannot willingly move away from the scroll. Also, the targets can make a wisdom saving throw at the end of each of their turns. On a success, they are no longer charmed.
+你能够角任意长度的书面消息变形为一张美丽的卷轴。
+任何能够看到该卷轴的生物必须进行一次感知豁免检定，若失败则被你魅惑。
 
-\section{Map Regions}
-The map region functions |\DndArea| and |\DndSubArea| provide automatic numbering of areas.
+被你魅惑的生物的视线不能离开该卷轴，且不会自愿地远离它。
+目标在其回合结束时可以进行一次感知豁免检定，若成功则不再被魅惑。
 
-\DndArea{Village of Hommlet}
-This is the village of hommlet.
+\section{地图区域}
+地图区域函数|\DndArea|和|\DndSubArea|会自动为区域标号。
 
-\DndSubArea{Inn of the Welcome Wench}
-Inside the village is the inn of the Welcome Wench.
+\DndArea{霍姆莱特村 Village of Hommlet}
+名为霍姆莱特的村庄。
+（这是第一版附带的新手模组的发生地。）
 
-\DndSubArea{Blacksmith's Forge}
-There's a blacksmith in town, too.
+\DndSubArea{迎客少女酒馆 Inn of the Welcome Wench}
+迎客少女酒馆位于霍姆莱特村中。
 
-\DndArea{Foo's Castle}
-This is foo's home, a hovel of mud and sticks.
+\DndSubArea{铁匠铺 Blacksmith's Forge}
+村庄中还有一个铁匠铺。
 
-\DndSubArea{Moat}
-This ditch has a board spanning it.
+\DndArea{福之城堡 Foo's Castle}
+这是福的住所，是一间由泥土和木棍搭成的破旧小屋。
 
-\DndSubArea{Entrance}
-A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
+\DndSubArea{护城壕}
+壕沟上横跨着一块木板。
 
-\chapter{Text Boxes}
+\DndSubArea{入口}
+一个五尺高的洞，借助屋顶的洞透过的光线，从其中可以看见泥土地面。
 
-The module has three environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
+\chapter{文本框}
+
+这个模块含有三个分离文本用来吸引读者注意的环境。
+|DndReadAloud|用来标记游戏主持人应当大声朗读出的文本。
 
 \begin{DndReadAloud}
-  As you approach this module you get a sense that the blood and tears of many generations went into its making. A warm feeling welcomes you as you type your first words.
+  当你靠近这个模块时，能感受到无数代人为它而付出的血与泪。
+  当你输入第一个字时，一种温暖的感觉随之而来。
 \end{DndReadAloud}
 
-\section{As an Aside}
-The other two environments are the |DndComment| and the |DndSidebar|. The |DndComment| is breakable and can safely be used inline in the text.
+\section{侧栏}
+其余两个环境为|DndComment|和|DndSidebar|。
+|DndComment|可以断开，能够在文本中内联使用。
 
-\begin{DndComment}{This Is a Comment Box!}
-  A |DndComment| is a box for minimal highlighting of text. It lacks the ornamentation of |DndSidebar|, but it can handle being broken over a column.
+\begin{DndComment}{这是一个评论框！}
+  |DndComment|是为文本提供最简单高亮的文本框。
+  它缺少|DndSidebar|周围的装饰，但是能够在两栏之间断开。
 \end{DndComment}
 
-The |DndSidebar| is not breakable and is best used floated toward a page corner as it is below.
+|DndSidebar|不能断开，因此最好使用浮动（float）来固定在页面一角。
 
-\begin{DndSidebar}[float=!b]{Behold the DndSidebar!}
-  The |DndSidebar| is used as a sidebar. It does not break over columns and is best used with a figure environment to float it to one corner of the page where the surrounding text can then flow around it.
+\begin{DndSidebar}[float=!b]{看，DndSidebar！}
+  |DndSidebar|用在侧边栏中。
+  它不会在两栏之间断开，最好和figure环境一切使用来浮动在页面的一角，这样文本可以环绕它。
 \end{DndSidebar}
 
-\section{Tables}
-The |DndTable| colors the even rows and is set to the width of a line by default.
+\section{表格}
+|DndTable|为偶数行上色，且默认定宽为行宽。
 
 \begin{DndTable}[header=Nice Table]{XX}
-    Table head  & Table head \\
-    Some value  & Some value \\
-    Some value  & Some value \\
-    Some value  & Some value
+    表头  & 表头 \\
+    值  & 值 \\
+    值  & 值 \\
+    值  & 值
 \end{DndTable}
 
-\chapter{Monsters and NPCs}
+\chapter{怪物与NPC}
 
 % Monster stat block
-\begin{DndMonster}[float*=b,width=\textwidth + 8pt]{Monster Foo}
+\begin{DndMonster}[float*=b,width=\textwidth + 8pt]{福之怪 Monster Foo}
   \begin{multicols}{2}
-    \DndMonsterType{Medium aberration (metasyntactic variable), neutral evil}
+    \DndMonsterType{中型异怪（占位变量），中立邪恶}
 
     % If you want to use commas in the key values, enclose the values in braces.
     \DndMonsterBasics[
-        armor-class = {9 (12 with \emph{mage armor})},
+        armor-class = {9（带\emph{法师护甲}12）},
         hit-points  = {\DndDice{3d8 + 3}},
-        speed       = {30 ft., fly 30 ft.},
+        speed       = {30尺，飞行30尺},
       ]
 
     \DndMonsterAbilityScores[
@@ -176,33 +181,33 @@ The |DndTable| colors the even rows and is set to the width of a line by default
         %damage-resistances = {bludgeoning, piercing, and slashing from nonmagical attacks},
         %damage-immunities = {poison},
         %condition-immunities = {poisoned},
-        senses = {darkvision 60 ft., passive Perception 10},
-        languages = {Common, Goblin, Undercommon},
+        senses = {黑暗视觉60尺，被动察觉10},
+        languages = {通用语、地精语、地下通用语},
         challenge = 1,
       ]
     % Traits
-    \DndMonsterAction{Innate Spellcasting}
-    Foo's spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:
+    \DndMonsterAction{天生施法}
+    施法关键属性为魅力（法术豁免DC 12，法术攻击命中+4）。它天生可施展以下法术而不需要任何相应的材料成分：
     \begin{DndMonsterSpells}
-      \DndInnateSpellLevel{misty step}
-      \DndInnateSpellLevel[3]{fog cloud, rope trick}
-      \DndInnateSpellLevel[1]{identify}
+      \DndInnateSpellLevel{迷踪步}
+      \DndInnateSpellLevel[3]{云雾术，魔绳术}
+      \DndInnateSpellLevel[1]{鉴定术}
     \end{DndMonsterSpells}
 
-    \DndMonsterAction{Spellcasting}
-    Foo is a 2nd-level spellcaster. Its spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It has the following sorcerer spells prepared:
+    \DndMonsterAction{施法}
+    其为二级施法者。施法关键属性为魅力（法术豁免DC 12，法术攻击命中+4）。它准备了以下法术:
     \begin{DndMonsterSpells}
-      \DndMonsterSpellLevel{blade ward, fire bolt, light, shocking grasp}
-      \DndMonsterSpellLevel[1][3]{burning hands, mage armor, shield}
+      \DndMonsterSpellLevel{剑刃防护，火焰箭，光亮术，电爪}
+      \DndMonsterSpellLevel[1][3]{燃烧之手，法师护甲，护盾术}
     \end{DndMonsterSpells}
 
-    \DndMonsterSection{Actions}
-    \DndMonsterAction{Multiattack}
-    The foo makes two melee attacks.
+    \DndMonsterSection{行动}
+    \DndMonsterAction{多重攻击}
+    进行两次近战攻击。
 
     %Default values are shown commented out
     \DndMonsterAttack[
-      name=Dagger,
+      name=匕首,
       %distance=both, % valid options are in the set {both,melee,ranged},
       %type=weapon, %valid options are in the set {weapon,spell}
       mod=+3,
@@ -210,7 +215,7 @@ The |DndTable| colors the even rows and is set to the width of a line by default
       %range=20/60,
       %targets=one target,
       dmg=\DndDice{1d4+1},
-      dmg-type=piercing,
+      dmg-type=穿刺,
       %plus-dmg=,
       %plus-dmg-type=,
       %or-dmg=,
@@ -220,88 +225,90 @@ The |DndTable| colors the even rows and is set to the width of a line by default
 
     %\DndMonsterMelee calls \DndMonsterAttack with the melee option
     \DndMonsterMelee[
-      name=Flame Tongue Longsword,
+      name=火舌长剑,
       mod=+3,
       %reach=5,
       %targets=one target,
       dmg=\DndDice{1d8+1},
-      dmg-type=slashing,
+      dmg-type=挥砍,
       plus-dmg=\DndDice{2d6},
-      plus-dmg-type=fire,
+      plus-dmg-type=火焰,
       or-dmg=\DndDice{1d10+1},
-      or-dmg-when=if used with two hands,
+      or-dmg-when=若双手共持,
       %extra=,
     ]
 
     %\DndMonsterRanged calls \DndMonsterAttack with the ranged option
     \DndMonsterRanged[
-      name=Assassin's Light Crossbow,
+      name=刺客轻弩,
       mod=+1,
       range=80/320,
       dmg=\DndDice{1d8},
-      dmg-type=piercing,
+      dmg-type=穿刺,
       %plus-dmg=,
       %plus-dmg-type=,
       %or-dmg=,
       %or-dmg-when=,
-      extra={, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one}
+      extra={，目标须进行一次DC 15的体质豁免检定，失败则受24 (7d6)毒素伤害，成功伤害减半。}
     ]
 
     % Legendary Actions
-    \DndMonsterSection{Legendary Actions}
-    The foo can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The foo regains spent legendary actions at the start of its turn.
+    \DndMonsterSection{传奇动作}
+    其拥有3 传奇动作用于选择执行下列动作选项。每次执行传奇动作时，每个选项只可以选用一次，且只能在另一生物的回合结束时执行。在它的回合开始时恢复其所有已消耗的传奇动作数。
 
     \begin{DndMonsterLegendaryActions}
-      \DndMonsterLegendaryAction{Move}{The foo moves up to its speed.}
-      \DndMonsterLegendaryAction{Dagger Attack}{The foo makes a dagger attack.}
-      \DndMonsterLegendaryAction{Create Contract (Costs 3 Actions)}{The foo presents a contract in a language it knows and waves it in the face of a creature within 10 feet. The creature must make a DC 10 Intelligence saving throw. On a failure, the creature is incapacitated until the start of the foo's next turn. A creature who cannot read the language in which the contract is written has advantage on this saving throw.}
+      \DndMonsterLegendaryAction{移动}{最快以其最大速度移动。}
+      \DndMonsterLegendaryAction{匕首攻击}{进行一次匕首攻击。}
+      \DndMonsterLegendaryAction{创建契约（花费3行动）}{Foo用其所知的语言创造一份契约并向10尺内任意一个生物展示。该生物必须进行一次DC 10的智力豁免检定。失败时，该生物陷入失能直至Foo的下一个回合。不能能理解该契约的语言者的检定具有优势。}
     \end{DndMonsterLegendaryActions}
   \end{multicols}
 \end{DndMonster}
 
-The |DndMonster| environment is used to typeset monster and NPC stat blocks. The module supplies many functions to easily typeset the contents of the stat block
+使用|DndMonster|环境来为怪物和非玩家角色的资料板进行排版。
+此模块提供许多函数来为资料板的内容进行排版。
 
-\part{Customization}
+\part{自定义}
 
-\chapter{Colors}
+\chapter{颜色}
 
 \begin{table*}[b]
-  \caption{\DndFontTableTitle{}Colors Supported by this Package}\label{tab:colors}
+  \caption{\DndFontTableTitle{}本宏包支持的颜色}\label{tab:colors}
 
   \begin{tabularx}{\linewidth}{lX}
-    \textbf{Color}                  & \textbf{Description} \\
+    \textbf{颜色}                  & \textbf{描述} \\
     \rowcolor{PhbLightGreen}
-    |PhbLightGreen|                 & Light green used in PHB Part 1 (Default) \\
+    |PhbLightGreen|                 & 玩家手册第一部分使用的淡绿色（默认） \\
     \rowcolor{PhbLightCyan}
-    |PhbLightCyan|                  & Light cyan used in PHB Part 2 \\
+    |PhbLightCyan|                  & 玩家手册第二部分使用的淡青色 \\
     \rowcolor{PhbMauve}
-    |PhbMauve|                      & Pale purple used in PHB Part 3 \\
+    |PhbMauve|                      & 玩家手册第三部分使用的淡紫色 \\
     \rowcolor{PhbTan}
-    |PhbTan|                        & Light brown used in PHB appendix \\
+    |PhbTan|                        & 玩家手册附录使用的浅棕色 \\
     \rowcolor{DmgLavender}
-    |DmgLavender|                   & Pale purple used in DMG Part 1 \\
+    |DmgLavender|                   & 城主手册第一部分使用的淡紫色 \\
     \rowcolor{DmgCoral}
-    |DmgCoral|                      & Orange-pink used in DMG Part 2 \\
+    |DmgCoral|                      & 城主手册第二部分使用的橘粉色 \\
     \rowcolor{DmgSlateGray}
-    |DmgSlateGray| (|DmgSlateGrey|) & Blue-gray used in PHB Part 3 \\
+    |DmgSlateGray| (|DmgSlateGrey|) & 城主手册第三部分使用的蓝灰色 \\
     \rowcolor{DmgLilac}
-    |DmgLilac|                      & Purple-gray used in DMG appendix \\
+    |DmgLilac|                      & 城主手册附录使用的紫灰色 \\
     \rowcolor{BrGreen}
-    |BrGreen|                       & Gray-green used for tables in Basic Rules\\
+    |BrGreen|                       & 基础规则中表格使用的灰绿色 \\
   \end{tabularx}
 \end{table*}
 
-This package provides several global color variables to style |DndComment|, |DndReadAloud|, |DndSidebar|, and |DndTable| environments.
+该宏包提供几种全局的颜色变量来为|DndComment|、|DndReadAloud|、|DndSidebar|和|DndTable|环境指定样式。
 
-\begin{DndTable}[header=Box Colors]{lX}
-  Color            &  Description \\
-  |commentcolor|   & |DndComment| background \\
-  |readaloudcolor| & |DndReadAloud| background \\
-  |sidebarcolor|   & |DndSidebar| background \\
-  |tablecolor|     & background of even |DndTable| rows \\
+\begin{DndTable}[header=文本框颜色]{lX}
+  颜色            &  描述 \\
+  |commentcolor|   & |DndComment|背景色 \\
+  |readaloudcolor| & |DndReadAloud|背景色 \\
+  |sidebarcolor|   & |DndSidebar|背景色 \\
+  |tablecolor|     & |DndTable|偶数行的背景色 \\
 \end{DndTable}
 
-They also accept an optional color argument to set the color for a single instance. See Table~\ref{tab:colors} for a list of core book accent colors.
+这些环境也接受一个可选的颜色参数用来为单个实例指定颜色。
+可用的核心规则书颜色参见表格\ref{tab:colors}。
 
 \begin{lstlisting}
 \begin{DndTable}[color=PhbLightCyan]{cX}
@@ -329,8 +336,11 @@ They also accept an optional color argument to set the color for a single instan
   8  & Tarnished silver locket \\
 \end{DndTable}
 
-\section{Themed Colors}
-Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sidebarcolor|, and |tablecolor| to a specific color. Calling |\DndSetThemeColor| without an argument sets those colors to the current |themecolor|. In the following example the group limits the change to just a few boxes; after the group finishes, the colors are reverted to what they were before the group started.
+\section{主题颜色}
+使用|\DndSetThemeColor[<color>]|来为|commentcolor|、|readaloudcolor|、|sidebarcolor|和|tablecolor|设置指定的颜色。
+不带参数地调用|\DndSetThemeColor|能将以上颜色设置为当前的|themecolor|。
+以下例子使用分组将颜色的改变限制在几个文本框中。
+分组之后，颜色就回到了开始前的状态。
 
 \begin{lstlisting}
 \begingroup
@@ -349,12 +359,12 @@ Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sideb
 \begingroup
 \DndSetThemeColor[PhbMauve]
 
-\begin{DndComment}{This Comment Is in Mauve}
-  This comment is in the the new color.
+\begin{DndComment}{淡紫色评论}
+  这个评论使用新的主题色。
 \end{DndComment}
 
-\begin{DndSidebar}{This Sidebar Is Also Mauve}
-  The sidebar is also using the new theme color.
+\begin{DndSidebar}{淡紫色侧栏}
+  这个侧栏也使用新的主题色。
 \end{DndSidebar}
 \endgroup
 
