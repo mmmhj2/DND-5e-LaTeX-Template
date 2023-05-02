@@ -1,17 +1,18 @@
 \ExplSyntaxOn
 
-%\bool_if:NT \l__dnd_layout_bool
-%{
-%  % Change part numbering to Arabic numbers from Roman numerals
-%  \renewcommand{\thepart}{\arabic{part}}
-%
-%  % Set spacing around floats
-%  \setlength{\textfloatsep}{11pt plus 4pt minus 4pt}
-%  \setlength{\intextsep}{11pt plus 4pt minus 4pt}
-%  \setlength{\dbltextfloatsep}{11pt plus 4pt minus 4pt}
-%
-%  % Remove Numbering (If you want Numbering set secnumdepth to the appropriate depth)
-%  \setcounter{secnumdepth}{0}
+\bool_if:NT \l__dnd_layout_bool
+{
+  % Change part numbering to Arabic numbers from Roman numerals
+  \renewcommand{\thepart}{\arabic{part}}
+
+  % Set spacing around floats
+  \setlength{\textfloatsep}{11pt plus 4pt minus 4pt}
+  \setlength{\intextsep}{11pt plus 4pt minus 4pt}
+  \setlength{\dbltextfloatsep}{11pt plus 4pt minus 4pt}
+
+  % Remove Numbering (If you want Numbering set secnumdepth to the appropriate depth)
+  \setcounter{secnumdepth}{0}
+% Section formatting should be taken over by ctex package
 %
 %  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  % Section formatting
@@ -98,7 +99,7 @@
 %    {\parindent} % left
 %    {\parskip}   % before-sep
 %    {\wordsep}   % after-sep
-%}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Special command for magic items, traps, and the like.
