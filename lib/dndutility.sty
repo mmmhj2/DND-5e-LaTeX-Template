@@ -33,7 +33,7 @@
             { %Yes, break down the roll
               \fp_eval:n { floor ( \l__dice_number_tl * ( \l__dice_sides_tl + 1 ) / 2 )\l__dice_mod_sign_tl \l__dice_mod_tl }~
 
-              (
+              （
                 \l__dice_number_tl d \l__dice_sides_tl
 
                 \str_case_e:nn { \l__dice_mod_sign_tl }
@@ -41,7 +41,7 @@
                     { + } { ~+~\l__dice_mod_tl }
                     { - } { ~--~\l__dice_mod_tl }
                   }
-              )
+              ）
             }
         }
         { \msg_error:nnn { dnd } { dice / invalid_argument } { #1 }}

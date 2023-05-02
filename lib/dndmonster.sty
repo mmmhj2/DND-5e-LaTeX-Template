@@ -375,11 +375,11 @@
 
 % Inline header for monster actions - similar to a paragraph
 \NewDocumentCommand {\DndMonsterAction} {m}
-  { \par \smallskip \noindent \textsl { \textbf {#1.} } }
+  { \par \smallskip \noindent \textsl { \textbf {#1。} } }
 
 % Inline header for monster sub actions - similar to a subparagraph
 \NewDocumentCommand {\DndMonsterSubAction} {m}
-  { \par \textsl { \textbf {#1.} } }
+  { \par \textsl { \textbf {#1。} } }
 
 % Monster subsection header style
 \NewDocumentCommand {\DndMonsterSection} {m}
@@ -426,7 +426,7 @@
           { \__dnd_caption:nn {\numberperdayname} {#1} }
         }
         {#1}
-        :
+        ：
       ]
       \DndEmphSpellString {#2}
   }
@@ -448,7 +448,7 @@
             {9} {\spellninthlevelname}
           }
           {#1}
-        {~}(
+        {~}（
         \str_case_e:nnF {#2}
           {
             {1} {\spelloneslotname}
@@ -457,7 +457,7 @@
             {4} {\spellfourslotsname}
           }
           {#2}
-        ) :
+        ）：
       ]
     \DndEmphSpellString{#3}
   }
@@ -519,17 +519,17 @@
 \cs_new_protected:Npn \__dnd_if_plus_dmg:
   {
     \tl_if_empty:NF {\l__plus_dmg_tl}
-    { ~ \plusname\ \l__plus_dmg_tl\ \l__plus_dmg_type_tl\ \damagename }
+    { ~ \plusname\ \l__plus_dmg_tl\ \l__plus_dmg_type_tl\damagename }
   }
 
 \cs_new_protected_nopar:Npn \__dnd_if_or_dmg:
   {
     \tl_if_empty:NF {\l__or_dmg_tl}
     {
-      , ~ \orname\ \l__or_dmg_tl\ \l__dmg_type_tl\ \damagename\ \l__or_dmg_when_tl
+      ，~ \orname\ \l__or_dmg_tl\ \l__dmg_type_tl\damagename\l__or_dmg_when_tl
 
       \tl_if_empty:NF {\l__plus_dmg_tl}
-        {,}
+        {，}
     }
   }
 
@@ -544,29 +544,29 @@
         {
           { melee }
             {
-              \textit{ \__dnd_caption:nn {\meleeattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:
+              \textit{ \__dnd_caption:nn {\meleeattackname} {\l__dnd_attack_type_tl} ：} ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}，~ \__dnd_monster_reach:
             }
           { ranged }
             {
-              \textit{ \__dnd_caption:nn {\rangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_range:
+              \textit{ \__dnd_caption:nn {\rangedattackname} {\l__dnd_attack_type_tl} ：} ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}，~ \__dnd_monster_range:
             }
         }
         {% Melee and Ranged is the default
-          \textit{ \__dnd_caption:nn {\meleeorrangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:\ \orname\ \__dnd_monster_range:
+          \textit{ \__dnd_caption:nn {\meleeorrangedattackname} {\l__dnd_attack_type_tl} ：} ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}，~ \__dnd_monster_reach:\orname\__dnd_monster_range:
         }
-      , ~ \l__targets_tl. ~
-      \textit { \hitname : } ~
+      ，~ \l__targets_tl。~
+      \textit { \hitname ：} ~
 
       \str_if_empty:NF {\l__dmg_tl} % Don't show any damage if `dmg' is not set.
         {
-          \l__dmg_tl\ \l__dmg_type_tl\ \damagename
+          \l__dmg_tl\l__dmg_type_tl\damagename
           \__dnd_if_or_dmg:
           \__dnd_if_plus_dmg:
         }
 
       % `extra' is any special text that goes after the final damage; do not
       % include the final full stop.
-      \l__extra_tl .
+      \l__extra_tl {。}
     \end{DndMonsterAction}
   }
 
@@ -607,6 +607,6 @@
 
 \NewDocumentCommand {\DndMonsterLegendaryAction} { m m }
   {
-    \item [ #1 . ] #2
+    \item [ #1 。] #2
   }
 
