@@ -13,92 +13,92 @@
   % Remove Numbering (If you want Numbering set secnumdepth to the appropriate depth)
   \setcounter{secnumdepth}{0}
 % Section formatting should be taken over by ctex package
-%
-%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  % Section formatting
-%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  % Part
-%  \titleformat {\part}
-%    [display]
-%    { \centering \DndFontPart } % format
-%    { \DndContour{\partname\ \thepart} } % label
-%    { 2ex } % sep
-%    { \DndContour } % before-code
-%
-%  % Chapter
-%  \titleformat {\chapter}
-%    { \DndFontChapter } % format
-%    { \DndContour{\chaptertitlename\ \thechapter :} } % label
-%    { \wordsep } % sep
-%    { \DndContour } % before-code
-%
-%  \titlespacing* {\chapter}
-%    { 0pt }  % left
-%    { .3ex }  % before-sep
-%    { 2.8ex } % after-sep
-%
-%  % Section
-%  \titleformat {\section}
-%    { \DndFontSection } % format
-%    { \thesection } % label
-%    { 1em } % sep
-%    { \nopagebreak } % before-code
-%
-%  \titlespacing* { \section }
-%    { 0pt } % left
-%    { 1.3ex plus .43ex minus .43ex } % before-sep
-%    { 0pt } % after-sep
-%
-%  % Subsection
-%  \titleformat {\subsection}
-%    { \DndFontSubsection } % format
-%    { \thesubsection } % label
-%    { 1em } % sep
-%    { \nopagebreak } % before-code
-%    [ \vspace{-.3ex} \titleline{ \color{titlegold} \titlerule[1pt] } ] % after-code
-%
-%  \titlespacing*{ \subsection }
-%    { 0pt } % left
-%    { 1.4ex plus .47ex minus .47ex } % before-sep
-%    { 1.2ex } % after-sep
-%
-%  % Subsubsection
-%  \titleformat {\subsubsection}
-%    { \DndFontSubsubsection } % format
-%    { \thesubsubsection } % label
-%    { 1em } % sep
-%    { \nopagebreak } % before-code
-%
-%  \titlespacing* { \subsubsection }
-%    { 0pt } % left
-%  { 2ex plus .67ex minus .67ex } % before-sep
-%    { .2ex } % after-sep
-%
-%  % Paragraph
-%  \titleformat {\paragraph} [runin]
-%    { \DndFontParagraph } % format
-%    { \theparagraph \quad } % label
-%    {0pt} % sep
-%    {}    % before-code
-%    [.]   % after-code
-%
-%  \titlespacing* {\paragraph}
-%    {0pt}      % left
-%    {\parskip} % before-sep
-%    {\wordsep} % after-sep
-%
-%  % Subparagraph
-%  \titleformat {\subparagraph} [runin]
-%    { \DndFontSubaragraph } % format
-%    { \thesubparagraph \quad } % label
-%    {0pt} % sep
-%    {}    % before-code
-%    [.]   % after-code
-%
-%  \titlespacing* {\subparagraph}
-%    {\parindent} % left
-%    {\parskip}   % before-sep
-%    {\wordsep}   % after-sep
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Section formatting
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Part
+  \titleformat {\part}
+    [display]
+    { \centering \DndFontPart } % format
+    { \DndContour{第 \thepart 部分} } % label
+    { 2ex } % sep
+    { \DndContour } % before-code
+
+  % Chapter
+  \titleformat {\chapter}
+    { \DndFontChapter } % format
+    { \DndContour{第 \thechapter 章：} } % label
+    { \wordsep } % sep
+    { \DndContour } % before-code
+
+  \titlespacing* {\chapter}
+    { 0pt }  % left
+    { .3ex }  % before-sep
+    { 2.8ex } % after-sep
+
+  % Section
+  \titleformat {\section}
+    { \DndFontSection } % format
+    { \thesection } % label
+    { 1em } % sep
+    { \nopagebreak } % before-code
+
+  \titlespacing* { \section }
+    { 0pt } % left
+    { 1.3ex plus .43ex minus .43ex } % before-sep
+    { 0pt } % after-sep
+
+  % Subsection
+  \titleformat {\subsection}
+    { \DndFontSubsection } % format
+    { \thesubsection } % label
+    { 1em } % sep
+    { \nopagebreak } % before-code
+    [ \vspace{-.3ex} \titleline{ \color{titlegold} \titlerule[1pt] } ] % after-code
+
+  \titlespacing*{ \subsection }
+    { 0pt } % left
+    { 1.4ex plus .47ex minus .47ex } % before-sep
+    { 1.2ex } % after-sep
+
+  % Subsubsection
+  \titleformat {\subsubsection}
+    { \DndFontSubsubsection } % format
+    { \thesubsubsection } % label
+    { 1em } % sep
+    { \nopagebreak } % before-code
+
+  \titlespacing* { \subsubsection }
+    { 0pt } % left
+  { 2ex plus .67ex minus .67ex } % before-sep
+    { .2ex } % after-sep
+
+  % Paragraph
+  \titleformat {\paragraph} [runin]
+    { \DndFontParagraph } % format
+    { \theparagraph \quad } % label
+    {0pt} % sep
+    {}    % before-code
+    [.]   % after-code
+
+  \titlespacing* {\paragraph}
+    {0pt}      % left
+    {\parskip} % before-sep
+    {\wordsep} % after-sep
+
+  % Subparagraph
+  \titleformat {\subparagraph} [runin]
+    { \DndFontSubaragraph } % format
+    { \thesubparagraph \quad } % label
+    {0pt} % sep
+    {}    % before-code
+    [.]   % after-code
+
+  \titlespacing* {\subparagraph}
+    {\parindent} % left
+    {\parskip}   % before-sep
+    {\wordsep}   % after-sep
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,10 +143,10 @@
         labelsep = \l__dnd_space_dim,
         after    = { \vspace{4pt plus 1pt minus 1pt} },
       ]
-      \item [ \spellcastingtimename : ] #3
-      \item [ \spellrangename       : ] #4
-      \item [ \spellcomponentsname  : ] #5
-      \item [ \spelldurationname    : ] #6
+      \item [ \spellcastingtimename ： ] #3
+      \item [ \spellrangename       ： ] #4
+      \item [ \spellcomponentsname  ： ] #5
+      \item [ \spelldurationname    ： ] #6
     \end{description}
   }
 
