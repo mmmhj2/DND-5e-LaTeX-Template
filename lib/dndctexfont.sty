@@ -1,0 +1,20 @@
+\ExplSyntaxOn
+
+\str_if_eq:onTF 
+  { \g__ctex_fontset_tl }
+  { windows }
+  {
+    \setCJKmainfont 
+      { SimSun } 
+      [
+        BoldFont = SimHei,
+        ItalicFont = KaiTi,
+        SlantedFont = SimSun,           % Fake slanted font, but not italic font
+        SlantedFeatures = { FakeSlant = 0.15 },
+        BoldSlantedFont = SimHei,
+        BoldSlantedFeatures = { FakeSlant = 0.15 }
+      ]
+  }
+  {
+
+  }
